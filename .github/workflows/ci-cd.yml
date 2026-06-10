@@ -18,10 +18,10 @@ jobs:
     - name: Build and Push App
       run: |
         docker build -t tomas230000/netmonitor-app:latest .
-        docker push tomas230000/netmonitor-app:latest
-
-    - name: Build and Push Nginx
+       - name: Build and Push Nginx
       run: |
+        docker build -t tomas230000/netmonitor-nginx:latest -f Dockerfile.nginx .
+        docker push tomas230000/netmonitor-nginx:latest
         docker build -t tomas230000/netmonitor-nginx:latest -f ./nginx/Dockerfile ./nginx || docker build -t tomas230000/netmonitor-nginx:latest -f ./nginx/dockerfile ./nginx
         docker push tomas230000/netmonitor-nginx:latest
 
