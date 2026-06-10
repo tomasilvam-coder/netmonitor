@@ -22,7 +22,7 @@ jobs:
 
     - name: Build and Push Nginx
       run: |
-        docker build -t tomas230000/netmonitor-nginx:latest ./nginx
+        docker build -t tomas230000/netmonitor-nginx:latest -f ./nginx/Dockerfile ./nginx || docker build -t tomas230000/netmonitor-nginx:latest -f ./nginx/dockerfile ./nginx
         docker push tomas230000/netmonitor-nginx:latest
 
     - name: Configure AWS Credentials
